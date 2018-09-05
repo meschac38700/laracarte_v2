@@ -1,0 +1,109 @@
+@import url('open-sans.css');
+.footer
+{
+	position: absolute;
+	width: 100%;
+	padding-left: auto;
+	padding-right: auto;
+	bottom: 0px;
+}
+.content
+{
+	padding-top: 1em;
+}
+h1
+{
+	font-family: 'Open Sans', sans-serif;
+}
+.radius
+{
+	border-radius: 5px;
+}
+.grey-bg
+{	
+	background-color: #dfe6e9c5;
+}
+.control-label
+{
+	font-weight: bold;
+}
+
+.has-error
+{
+	border: 1px solid red;
+}
+.btn-warning
+{
+	background-color: #ee5253;
+	color: #fff;
+	border: 1px solid #ff6b6b;
+}
+.btn-warning:hover
+{
+	background-color: #ff6b6b;
+	color: #fff;
+	border: 1px solid #ee5253;
+}
+.btn-primary
+{
+	background-color: #22a6b3;
+	color: #fff;
+	border: 1px solid #01a3a4;
+}
+.btn-primary:hover
+{
+	background-color: #01a3a4;
+	color:#fff;
+	border: 1px solid #22a6b3;
+}
+.spaced
+{
+	margin-top: 1em;
+}
+.spaced-top-bottom
+{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	border-radius: 5px 5px 0px 0px;
+	background-color: #576574;
+}
+
+.radius-bottom
+{
+	border-radius: 0px 0px 5px 5px;
+	background-color: #576574;
+}
+
+.right
+{
+	position: absolute;
+	right: 2em;
+
+}
+i{
+	font-weight: normal;
+}
+@media screen and (max-height: 850px )
+{
+	.footer
+	{
+		position: relative;
+		width: 100%;
+		padding-left: auto;
+		padding-right: auto;
+		margin-top : 4em;
+		margin-bottom: 2em;
+	}
+}
+@media screen and (max-width: 830px )
+{
+	.footer
+	{
+		position: relative;
+		width: 100%;
+		padding-left: auto;
+		padding-right: auto;
+		margin-top : 4em;
+		margin-bottom: 2em;
+	}
+}
