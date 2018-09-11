@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\LaracarteContact;
 use App\Http\Requests\LaracarteContactFormRequest;
 use App\Http\Requests\LaracarteLoginFormRequest;
 use App\Http\Requests\LaracarteRegisterFormRequest;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMessage;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use MercurySeries\Flashy\Flashy;
+use App\Models\Message;
 class PagesControler extends Controller
 {
     /**
@@ -42,19 +43,23 @@ class PagesControler extends Controller
     
     public function contact_store(LaracarteContactFormRequest $request)
     {
-        $name       = $request->name;
-        $email      = $request->email;
-        $message    = $request->message;
-        
-        $success = Mail::to("e.m.lotonga@gmail.com")
-                ->send(new ContactMessage($name, $email, $message) );
-        /* dump($name);
-        dump($email);
-        dump($message);
+        try
+        {
+            $name       = $request->name;
+            $email      = $request->email;
+            $message    = $request->message;
 
-        $success = \App\Utilities\HelpersFunctions::sendEmail("e.m.lotonga@gmail.com", $name . " email => " . $email, "Laracarte application", $message);
- */
-        dd($success);
+            $message_inserted = Message::create(['name'=>$name, 'email'=>$email, 'message'=>$message]);
+
+            Mail::to("e.m.lotonga@gmail.com")
+                    ->send(new ContactMessage($name, $email, $message) );
+            Flashy::success('Votre message a été envoyé !');
+            return redirect()->route('laracarte.index');
+        }
+        catch(\Exception $e)
+        {
+            Flashy::error("Nous somme désolé, mais votre message n'a pas été envoyé !");
+        }
     }
 
     /**

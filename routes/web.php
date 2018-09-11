@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\ContactMessage;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +25,7 @@ Route::post('/auth/login', "PagesControler@login_store")->name('laracarte.auth.l
 Route::get('/auth/register', "PagesControler@register")->name('laracarte.auth.register');
 Route::post('/auth/register', "PagesControler@register_store")->name('laracarte.auth.register');
 Route::get('/password/email', "PagesControler@password_lost")->name('laracarte.password.email');
+Route::get('/mail/test', function()
+{
+    return new ContactMessage('Eliam LOTONGA', 'e.lotonga.sen@gmail.com', "Hello word fdfsdfsffffffffffffffffffffffffffffffffffdsczsfqerfqwsbrfgscvertaztnghjnqeTHATRTHFBWDVFERGVERAT?AQERTGQVSRFGSDRVQZERQSErfx<qzeaXZEqvDSRBQZtrzetvqsxctrtnqesgvdtsdgwsfdfsdfsffffffffffffffffffffffffffffffffffdsczsfqerfqwsbrfgscvertaztnghjnqeTHATRTHFBWDVFERGVERAT?AQERTGQVSRFGSDRVQZERQSErfx<qzeaXZEqvDSRBQZtrzetvqsxctrtnqesgvdtsdgwsd t,,n kesvrdtvqetrd t,,n kesvrdtvqetr");
+});

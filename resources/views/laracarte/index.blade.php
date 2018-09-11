@@ -11,5 +11,8 @@
 <br/>
 <br/>
 
-
  @stop
+
+ @push('footer_scripts')
+    @include('flashy::message')
+ @endpush
