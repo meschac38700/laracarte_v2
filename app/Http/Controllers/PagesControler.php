@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use MercurySeries\Flashy\Flashy;
 use App\Models\Message;
+
 class PagesControler extends Controller
 {
     /**
@@ -40,23 +41,16 @@ class PagesControler extends Controller
     {
         return view("laracarte.contact");
     }
-    
+
     public function contact_store(LaracarteContactFormRequest $request)
     {
-        try
-        {
-            $name       = $request->name;
-            $email      = $request->email;
-            $message    = $request->message;
-
-            $message_inserted = Message::create( $request->only('name','email', 'message') );
+        try {
+            $message_inserted = Message::create($request->only('name', 'email', 'message'));
             Mail::to(config('app.email_admin'))
-                    ->send(new ContactMessage($name, $email, $message) );
+                ->send(new ContactMessage($request->name, $request->email, $request->message));
             Flashy::success('Votre message a été envoyé !');
             return redirect()->route('laracarte.index');
-        }
-        catch(\Exception $e)
-        {
+        } catch (\Exception $e) {
             Flashy::error("Nous somme désolé, mais votre message n'a pas été envoyé !");
         }
     }
@@ -70,7 +64,7 @@ class PagesControler extends Controller
         return view('laracarte.artisans');
     }
 
-    
+
     public function login()
     {
         return view('laracarte.auth.login');
