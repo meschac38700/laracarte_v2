@@ -5,8 +5,8 @@
     border-radius: 4px;
     font-weight: 400;
     position: fixed;
-    top: 40%;
-    right: 50%;
+    top: 50px;
+    right: 5px;
     font-size: 16px;
     color: #fff;
 }
@@ -89,11 +89,7 @@
         var template = $($("#flashy-template").html());
         $(".flashy").remove();
         template.find(".flashy__body").html(message).attr("href", link || "#").end()
-         .appendTo("body").hide().fadeIn(300).delay(2800).animate({
-            marginTop: "-100%"
-        }, 300, "swing", function() {
-            $(this).remove();
-        });
+         .appendTo("body").hide().fadeIn(1).delay(2000).hide(1000);
     }
 </script>
 
