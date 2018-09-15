@@ -51,7 +51,7 @@ class PagesControler extends Controller
 
             $message_inserted = Message::create(['name'=>$name, 'email'=>$email, 'message'=>$message]);
 
-            Mail::to("e.m.lotonga@gmail.com")
+            Mail::to(config('app.email_admin'))
                     ->send(new ContactMessage($name, $email, $message) );
             Flashy::success('Votre message a été envoyé !');
             return redirect()->route('laracarte.index');
