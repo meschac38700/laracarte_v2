@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-8 offset-md-2">
             <h1>Get In Touch</h1>
-            <p>If you having trouble with this service, please <a href="mailto:e.m.lotonga@gmail.com">ask for help</a>.</p>
+        <p>If you having trouble with this service, please <a href="mailto:{{config('app.email_admin')}}">ask for help</a>.</p>
             
             <form action="{{route('laracarte.contact.store')}}" method="post" novalidate>
                 {{ csrf_field()}}

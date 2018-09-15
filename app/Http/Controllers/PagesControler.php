@@ -49,8 +49,7 @@ class PagesControler extends Controller
             $email      = $request->email;
             $message    = $request->message;
 
-            $message_inserted = Message::create(['name'=>$name, 'email'=>$email, 'message'=>$message]);
-
+            $message_inserted = Message::create( $request->only('name','email', 'message') );
             Mail::to(config('app.email_admin'))
                     ->send(new ContactMessage($name, $email, $message) );
             Flashy::success('Votre message a été envoyé !');
