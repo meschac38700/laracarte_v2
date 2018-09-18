@@ -13,7 +13,7 @@ use App\Mail\ContactMessage;
 |
 */
 
-Route::get('/', "PagesControler@home")->name('laracarte.index');
+Route::get('/', "PagesControler@home")->name('laracarte.home');
 
 Route::get('/about', "PagesControler@about")->name('laracarte.about');
 

@@ -47,9 +47,10 @@ class PagesControler extends Controller
         try {
             $message_inserted = Message::create($request->only('name', 'email', 'message'));
             Mail::to(config('app.email_admin'))
+                ->cc($request->email)
                 ->send(new ContactMessage($request->name, $request->email, $request->message));
             Flashy::success('Votre message a été envoyé !');
-            return redirect()->route('laracarte.index');
+            return redirect()->route('laracarte.home');
         } catch (\Exception $e) {
             Flashy::error("Nous somme désolé, mais votre message n'a pas été envoyé !");
         }

@@ -5,12 +5,11 @@ namespace App\Utilities;
 use Illuminate\Support\Facades\Route;
 class HelpersFunctions
 {
-
-
+    
     public static function formatTitle( $title )
     {
         $base = "Laracarte - List of artisans";
-        return !empty($title)? $title . " | " . $base : $base;
+        return !empty($title)? ucfirst($title) . " | " . $base : $base;
     }
 
     public static function active( $route )

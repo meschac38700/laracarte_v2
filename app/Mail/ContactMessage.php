@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactMessage extends Mailable
+class ContactMessage extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -33,6 +33,6 @@ class ContactMessage extends Mailable
      */
     public function build()
     {
-        return $this->from('eliam38700@gmail.com')->view('emails.contactMessage');
+        return $this->from($this->email,$this->name)->view('emails.contactMessage');
     }
 }

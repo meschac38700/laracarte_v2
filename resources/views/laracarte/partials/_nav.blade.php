@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-light static-top bg-light">
   <div class="container">
-    <a class="navbar-brand" href="{{ route('laracarte.index') }}">Laracarte</a>
+    <a class="navbar-brand" href="{{ route('laracarte.home') }}">Laracarte</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-      <li class="nav-item {{ App\Utilities\HelpersFunctions::active('laracarte.index')}}">
-          <a class="nav-link" href="{{ route('laracarte.index') }}">Home</a>
+      <li class="nav-item {{ App\Utilities\HelpersFunctions::active('laracarte.home')}}">
+          <a class="nav-link" href="{{ route('laracarte.home') }}">Home</a>
         </li>
         <li class="nav-item {{ App\Utilities\HelpersFunctions::active('laracarte.about')}}">
           <a class="nav-link" href="{{ route('laracarte.about') }}">About</a>
